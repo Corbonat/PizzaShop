@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "912356766454",
+    "project_id": "pizzashop-37f41",
+    "storage_bucket": "pizzashop-37f41.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:912356766454:android:9045fc0d02c926a176f2d7",
+        "android_client_info": {
+          "package_name": "com.corbi.pizzashop"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCodua0umEE1HP4AXHkgVVxCEzSMSxGXrk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
