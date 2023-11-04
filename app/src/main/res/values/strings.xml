@@ -3,4 +3,18 @@
     <string name="title_menu">Меню</string>
     <string name="title_profile">Профиль</string>
     <string name="title_cart">Корзина</string>
+    <string name="title_dessert">Дессерты</string>
+    <string name="title_pizza">Пицца</string>
+    <string name="title_drinks">Напитки</string>
+    <string name="light_orange_string">#FF8F6B</string>
+
+    <string-array name="cities">
+        <item>Москва</item>
+        <item>Санкт-Петербург</item>
+        <item>Новосибирск</item>
+        <item>Екатеринбург</item>
+        <item>Казань</item>
+        <!-- Другие города -->
+    </string-array>
+
 </resources>

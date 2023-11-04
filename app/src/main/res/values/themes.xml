@@ -1,8 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.PizzaShop" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/orange</item>
+    <style name="Theme.PizzaShop" parent="Theme.PizzaShop.Base">
         <item name="colorPrimaryVariant">@color/white_grey</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
@@ -11,6 +9,29 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="backgroundColor">@color/white</item>
+    </style>
+
+    <style name="Theme.PizzaShop.Base" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/orange</item>
         <!-- Customize your theme here. -->
+        <item name="android:fontFamily">@font/baloo</item>
+    </style>
+
+    <style name="Widget.ChooseButton" parent="Widget.AppCompat.Button.Small">
+        <item name="android:layout_width">150dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:textSize">17sp</item>
+        <item name="backgroundTint">@color/white</item>
+        <item name="android:textColor">@color/light_black</item>
+    </style>
+
+    <style name="Widget.DiscountButton" parent="Widget.AppCompat.ImageButton">
+        <item name="android:layout_width">370dip</item>
+        <item name="android:layout_height">150dip</item>
+        <item name="android:background">@drawable/round_corners</item>
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:layout_marginStart">5dp</item>
     </style>
 </resources>

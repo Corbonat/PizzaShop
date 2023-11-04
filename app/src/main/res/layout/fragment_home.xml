@@ -1,23 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".ui.home.HomeFragment">
 
-    <TextView
-        android:id="@+id/text_home"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/citi_choise_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="170dp"
+            android:entries="@array/cities"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <HorizontalScrollView
+        android:id="@+id/discounts_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:scrollbars="none"
+        android:layout_below="@id/citi_choise_layout">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+
+            <ImageButton
+                android:id="@+id/discount_1"
+                style="@style/Widget.DiscountButton"
+                android:src="@drawable/button_discount_1" />
+
+            <ImageButton
+                android:id="@+id/discount_2"
+                style="@style/Widget.DiscountButton"
+                android:src="@drawable/button_discount_2"
+                />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/discounts_view"
+        android:scrollbars="none"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:id="@+id/button_pizza"
+                style="@style/Widget.ChooseButton"
+                android:text="@string/title_pizza" />
+
+            <Button
+                android:id="@+id/button_drinks"
+                style="@style/Widget.ChooseButton"
+                android:text="@string/title_drinks" />
+
+            <Button
+                android:id="@+id/button_dessert"
+                style="@style/Widget.ChooseButton"
+                android:text="@string/title_dessert" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_below="@id/horizontalScrollView"
+        android:layout_height="match_parent">
+
+
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</RelativeLayout>

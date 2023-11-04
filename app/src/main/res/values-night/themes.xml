@@ -1,8 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.PizzaShop" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/orange</item>
+    <style name="Theme.PizzaShop" parent="Theme.PizzaShop.Base">
         <item name="colorPrimaryVariant">@color/orange</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->

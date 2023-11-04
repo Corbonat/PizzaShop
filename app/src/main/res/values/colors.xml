@@ -11,4 +11,6 @@
     <color name="white_grey">#ccc</color>
     <color name="orange">#F8542B</color>
     <color name="light_orange">#FF8F6B</color>
+    <color name="red_orange">#FF4635</color>
+    <color name="white_pink">#FD3A69</color>
 </resources>
