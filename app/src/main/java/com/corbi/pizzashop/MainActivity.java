@@ -2,14 +2,14 @@ package com.corbi.pizzashop;
 
 import android.annotation.SuppressLint;
 import android.content.res.ColorStateList;
-import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.Spinner;
 
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,8 +17,12 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.corbi.pizzashop.databinding.ActivityMainBinding;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -29,7 +33,10 @@ public class MainActivity extends AppCompatActivity {
     private final Set<ChooseButton> chooseButtonSet = new HashSet<>();
     private ChooseButton dessertsButton, pizzaButton, drinksButton;
     private Spinner citiChoice;
+    RecyclerView productRecyclerView;
+    ProductAdapter productAdapter;
     ClickListener listener = new ClickListener();
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,9 +44,6 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        BottomNavigationView navView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
                 .build();
@@ -48,12 +52,20 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.navView, navController);
 
         initFields();
-        makeImagesCornersRound();
+        roundImagesCorners();
+
+        recyclerView = findViewById(R.id.product_recycler_view);
+
+
+        productAdapter = new ProductAdapter();
+
+        recyclerView.setAdapter(productAdapter);
+
 
         pizzaButton.setSelected(true);
     }
 
-    private void makeImagesCornersRound() {
+    private void roundImagesCorners() {
         findViewById(R.id.discount_1).setClipToOutline(true);
         findViewById(R.id.discount_2).setClipToOutline(true);
     }
@@ -62,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         dessertsButton = new ChooseButton(findViewById(R.id.button_dessert));
         pizzaButton = new ChooseButton(findViewById(R.id.button_pizza));
         drinksButton = new ChooseButton(findViewById(R.id.button_drinks));
-        citiChoice = findViewById(R.id.spinner);
+        citiChoice = findViewById(R.id.citi_choice_spinner);
     }
 
     private ChooseButton getChooseButton(Button button) {
